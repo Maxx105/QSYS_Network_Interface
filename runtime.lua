@@ -7,6 +7,7 @@ local dnsServers = Controls.DNSServers
 local dnsSearchDomains = Controls.DNSSearchDomains
 local removeDNSServer = Controls.RemoveDNSServer
 local removeSearchDomain = Controls.RemoveSearchDomain
+local removeStaticRoute = Controls.RemoveStaticRoute
 local staticRoutesIP = Controls.StaticRoutesIP
 local staticRoutesNetMask = Controls.StaticRoutesNetMask
 local staticRoutesGateway = Controls.StaticRoutesGateway
@@ -195,8 +196,16 @@ function deleteSearchDomain()
   dnsSearchDomains.Choices = dnsSearchDomainsFromData
 end
 
-function deleteStaticRoute()
+function deleteStaticRoute(i)
   -- TBD
+  for ix, v in ipairs(staticRoutes) do
+    if ix == i then
+      local staticRoutesTbl = staticRoutes[i].Choices
+      local index = getIndexInTable(staticRoutes[i].Choices, staticRoutes[i].String)
+      table.remove(staticRoutesTbl, index)
+      staticRoutes[i].Choices = staticRoutesTbl
+    end
+  end
 end
 
 function addDNSServer()
@@ -317,5 +326,10 @@ submit.EventHandler = updateNetworkData
 for i, v in ipairs(submitStaticRoute) do 
   v.EventHandler = function()
     createStaticRoute(i)
+  end
+end
+for i, v in ipairs(removeStaticRoute) do 
+  v.EventHandler = function()
+    deleteStaticRoute(i)
   end
 end
