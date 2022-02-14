@@ -197,7 +197,6 @@ function deleteSearchDomain()
 end
 
 function deleteStaticRoute(i)
-  -- TBD
   for ix, v in ipairs(staticRoutes) do
     if ix == i then
       local staticRoutesTbl = staticRoutes[i].Choices
