@@ -1,6 +1,6 @@
--- Basic Framework Plugin
--- by QSC
--- October 2020
+-- Network Interface Plugin
+-- by Maxx Sanner
+-- February 2022
 
 -- Information block for the plugin
 PluginInfo = {
