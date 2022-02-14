@@ -18,6 +18,7 @@ table.insert(ctrls, {Name = "AddedDNSServer", ControlType = "Text", Count = 1, U
 table.insert(ctrls, {Name = "AddedSearchDomain", ControlType = "Text", Count = 1, UserPin = true, PinStyle = "Both"})
 table.insert(ctrls, {Name = "MacAddress", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Output"})
 table.insert(ctrls, {Name = "LinkSpeed", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Output"})
+table.insert(ctrls, {Name = "Chassis", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Output"})
 table.insert(ctrls, {Name = "Mode", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Output"}) --List Box
 table.insert(ctrls, {Name = "IPAddress", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Both"})
 table.insert(ctrls, {Name = "NetMask", ControlType = "Text", Count = 4, UserPin = true, PinStyle = "Both"})

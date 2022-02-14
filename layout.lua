@@ -2,7 +2,8 @@ local CurrentPage = PageNames[props["page_index"].Value]
 local nics = {"Lan A", "Lan B", "Aux A", "Aux B"}
 local lanInfo = {
   {label = "MAC Address:",pos = {15,82}}, 
-  {label = "Link Speed:",pos = {211,82}}, 
+  {label = "Link Speed:",pos = {415,82}}, 
+  {label = "LLDP Information:",pos = {215,82}},
   {label = "Mode:",pos = {15,138}}, 
   {label = "IP Address:",pos = {155,138}}, 
   {label = "Net Mask:",pos = {297,138}}, 
@@ -61,12 +62,13 @@ for i, v in ipairs(nics) do
     table.insert(graphics,{Type = "GroupBox", Fill = {210,220,255}, StrokeWidth = 1, Position = {5,5}, Size = {580,376}, CornerRadius = 8})
     table.insert(graphics,{Type = "Text", Text = v, Position = {15,20}, Size = {86,17}, FontSize = 16, HTextAlign = "Left", IsBold = true})
     for j, lan in ipairs(lanInfo) do
-      table.insert(graphics, {Type = "Text", Text = lan.label, Position = lan.pos, Size = {86,17}, FontSize = 12, HTextAlign = "Left", IsBold = true})
+      table.insert(graphics, {Type = "Text", Text = lan.label, Position = lan.pos, Size = {151,17}, FontSize = 12, HTextAlign = "Left", IsBold = true})
     end
 
     layout["Link "..i] = {PrettyName = v.."~Link", Style = "Text", Position = {15,48}, Size = {54,23}, FontSize = 10, Color={255,255,255,0}, StrokeWidth=0}
     layout["MacAddress "..i] = {PrettyName = v.."~Mac Address", Style = "Text", Position = {15,99}, Size = {151,23}, FontSize = 12, Color={194,194,194}, HTextAlign = "Left"}
-    layout["LinkSpeed "..i] = {PrettyName = v.."~Link Speed", Style = "Text", Position = {211,99}, Size = {151,23}, FontSize = 12, Color={194,194,194}, HTextAlign = "Left"}
+    layout["LinkSpeed "..i] = {PrettyName = v.."~Link Speed", Style = "Text", Position = {415,99}, Size = {151,23}, FontSize = 12, Color={194,194,194}, HTextAlign = "Left"}
+    layout["Chassis "..i] = {PrettyName = v.."~Chassis", Style = "Text", Position = {215,99}, Size = {151,23}, FontSize = 12, Color={194,194,194}, HTextAlign = "Left"}
     layout["Mode "..i] = {PrettyName = v.."~Mode", Style = "ComboBox", Position = {15,155}, Size = {107,23}, FontSize = 12, HTextAlign = "Left"}
     layout["IPAddress "..i] = {PrettyName = v.."~Lan IP Address", Style = "Text", Position = {155,155}, Size = {107,23}, FontSize = 12, HTextAlign = "Left"}
     layout["NetMask "..i] = {PrettyName = v.."~Lan Net Mask", Style = "Text", Position = {297,155}, Size = {107,23}, FontSize = 12, HTextAlign = "Left"}
