@@ -33,13 +33,13 @@ if CurrentPage == "Setup" then
 
   commonControls({17,163})
 elseif CurrentPage == "Lan A" then
-  commonControls({15,342})
+  commonControls({15,366})
 elseif CurrentPage == "Lan B" then
-  commonControls({15,342})
+  commonControls({15,366})
 elseif CurrentPage == "Aux A" then
-  commonControls({15,342})
+  commonControls({15,366})
 elseif CurrentPage == "Aux B" then
-  commonControls({15,342})
+  commonControls({15,366})
 elseif CurrentPage == "DNS" then
   table.insert(graphics,{Type = "GroupBox", Text = "DNS", Fill = {210,220,255}, StrokeWidth = 1, Position = {5,5}, Size = {585,274}, CornerRadius = 8, IsBold = true})
   table.insert(graphics,{Type = "Text", Text = "DNS", Position = {20,18}, Size = {86,17}, FontSize = 14, HTextAlign = "Left", IsBold = true})
@@ -59,7 +59,7 @@ end
 
 for i, v in ipairs(nics) do
   if CurrentPage == v then
-    table.insert(graphics,{Type = "GroupBox", Fill = {210,220,255}, StrokeWidth = 1, Position = {5,5}, Size = {580,376}, CornerRadius = 8})
+    table.insert(graphics,{Type = "GroupBox", Fill = {210,220,255}, StrokeWidth = 1, Position = {5,5}, Size = {580,400}, CornerRadius = 8})
     table.insert(graphics,{Type = "Text", Text = v, Position = {15,20}, Size = {86,17}, FontSize = 16, HTextAlign = "Left", IsBold = true})
     for j, lan in ipairs(lanInfo) do
       table.insert(graphics, {Type = "Text", Text = lan.label, Position = lan.pos, Size = {151,17}, FontSize = 12, HTextAlign = "Left", IsBold = true})
@@ -78,6 +78,7 @@ for i, v in ipairs(nics) do
     layout["StaticRoutesGateway "..i] = {PrettyName = v.."~Static Routes Gateway", Style = "Text", Position = {297,223}, Size = {107,23}, FontSize = 12, HTextAlign = "Left"}
     layout["SubmitStaticRoute "..i] = {PrettyName = v.."~Static Routes Add", Style = "Button", Position = {445,223}, Size = {69,23}, Color = {255,255,255}, UnlinkOffColor = true, OffColor = {124,124,124}, Margin = 0}
     layout["StaticRoutes "..i] = {PrettyName = v.."~Static Routes", Style = "ListBox", Position = {15,261}, Size = {557,64}, FontSize = 12, HTextAlign = "Left"}
+    layout["RemoveStaticRoute "..i] = {PrettyName = v.."~Static Routes Remove", Style = "Button", Position = {15,326}, Size = {557,29}, Color = {255,255,255}, UnlinkOffColor = true, OffColor = {124,124,124}}
   end
 end
 

@@ -33,8 +33,6 @@ local modeOptions = {"auto", "static", "off"}
 local nics = {"LAN A", "LAN B", "AUX A", "AUX B"}
 local dnsServersFromData = {}
 local dnsSearchDomainsFromData = {}
-local staticRoutesLanA = {}
-local staticRoutesLanB = {}
 local numOfInterfaces
 
 function setInterfaceTbl()
@@ -137,8 +135,6 @@ function handleNetworkGet(tbl, code, d, e)
   end
   dnsServersFromData = networkData.dnsServers
   dnsSearchDomainsFromData = networkData.dnsSearchDomains
-  staticRoutesLanA = networkData.interfaces[1].staticRoutes
-  staticRoutesLanB = networkData.interfaces[2].staticRoutes
 end
 
 function getStaticRoutesData(data) 
@@ -197,6 +193,10 @@ function deleteSearchDomain()
   local index = getIndexInTable(dnsSearchDomains.Choices, dnsSearchDomains.String)
   table.remove(dnsSearchDomainsFromData, index)
   dnsSearchDomains.Choices = dnsSearchDomainsFromData
+end
+
+function deleteStaticRoute()
+  -- TBD
 end
 
 function addDNSServer()

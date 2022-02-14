@@ -7,6 +7,7 @@ table.insert(ctrls, {Name = "SubmitSearchDomain", ControlType = "Button", Button
 table.insert(ctrls, {Name = "RemoveDNSServer", ControlType = "Button", ButtonType = "Trigger", Count = 1, UserPin = true, PinStyle = "Both", Icon = "Trash"})
 table.insert(ctrls, {Name = "RemoveSearchDomain", ControlType = "Button", ButtonType = "Trigger", Count = 1, UserPin = true, PinStyle = "Both", Icon = "Trash"})
 table.insert(ctrls, {Name = "SubmitStaticRoute", ControlType = "Button", ButtonType = "Trigger", Count = 4, UserPin = true, PinStyle = "Both", Icon="Plus"})
+table.insert(ctrls, {Name = "RemoveStaticRoute", ControlType = "Button", ButtonType = "Trigger", Count = 4, UserPin = true, PinStyle = "Both", Icon="Trash"})
 
 --text
 table.insert(ctrls, {Name = "Hostname", ControlType = "Text", Count = 1, UserPin = true, PinStyle = "Both"})
